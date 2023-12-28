@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'MonumentExtended-Bold';
+  src: url('../fonts/MonumentExtended-Bold.ttf') format('truetype');
+  /* Adicione outros estilos ou variações se necessário */
+}
+
+@font-face {
+  font-family: 'MonumentExtended-Light';
+  src: url('../fonts/MonumentExtended-Light.ttf') format('truetype');
+  /* Adicione outros estilos ou variações se necessário */
+}
+
+@font-face {
+  font-family: 'MonumentExtended-Regular';
+  src: url('../fonts/MonumentExtended-Regular.otf') format('truetype');
+  /* Adicione outros estilos ou variações se necessário */
+}
+
+@font-face {
+  font-family: 'MonumentExtended-Ultrabold';
+  src: url('../fonts/MonumentExtended-Ultrabold.ttf') format('truetype');
+  /* Adicione outros estilos ou variações se necessário */
+}
+
+@font-face {
+  font-family: 'MonumentExtended-Ultralight';
+  src: url('../fonts/MonumentExtended-Ultralight.ttf') format('truetype');
+  /* Adicione outros estilos ou variações se necessário */
+}
