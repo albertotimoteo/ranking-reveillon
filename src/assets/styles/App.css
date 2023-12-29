@@ -40,3 +40,12 @@ body {
   justify-content: center;
   padding: 0 20%;
 }
+
+button {
+  margin-right: 10px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: rgb(252, 188, 34);
+  font-weight: bold;
+  border-color: rgb(252, 188, 34);
+}
