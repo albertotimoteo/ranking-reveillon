@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useLocalStorage } from "./hooks/useLocalStorage"
 import Edit from "./assets/icons/pencil.svg"
+import Beer from "./assets/images/beers.png"
 import "./assets/styles/App.css"
 
 function App() {
@@ -18,27 +19,34 @@ function App() {
   }
 
   return (
-    <div>
-      <div>
-        <h1>
-          {!startDate
-            ? "Corrida ainda não iniciada"
-            : `Corrida iniciada: ${new Date(startDate).toLocaleDateString(
-                "pt-BR"
-              )}`}
-        </h1>
-        <h1>
-          {!finishDate
-            ? "Corrida não finalizada"
-            : `Finalizada: ${new Date(finishDate).toLocaleDateString("pt-BR")}`}
-        </h1>
+    <div className="container">
+      <div className="titleContainer">
+        <img src={Beer} width={120} height={200} />
+        <div className="titleDiv">
+          <h1>
+            {!startDate
+              ? "Corrida ainda não iniciada"
+              : `Corrida iniciada: ${new Date(startDate).toLocaleDateString(
+                  "pt-BR"
+                )}`}
+          </h1>
+          <h1>
+            {!finishDate
+              ? "Corrida não finalizada"
+              : `Finalizada: ${new Date(finishDate).toLocaleDateString(
+                  "pt-BR"
+                )}`}
+          </h1>
+        </div>
+        <img src={Beer} width={120} height={200} />
       </div>
-      <table>
-        <th>
-          <td>#</td>
-          <td>NOME:</td>
-          <td>TEOR ALCOÓLICO:</td>
-        </th>
+      <table className="table">
+        <tr>
+          <th>#</th>
+          <th>NOME:</th>
+          <th>TEOR ALCOÓLICO:</th>
+          {Boolean(startDate) && <th>Editar</th>}
+        </tr>
         {JSON.parse(personsList).map((mapPerson, index) => (
           <tr key={index}>
             <td>{index + 1}</td>
@@ -85,12 +93,29 @@ function App() {
         <button onClick={() => setStartDate(new Date())}>
           Iniciar corrida
         </button>
-        <button onClick={() => setFinishDate(new Date())}>
-          Finalizar corrida
+        <button
+          onClick={() => {
+            if (!finishDate) {
+              setFinishDate(new Date())
+              return
+            }
+            setFinishDate("")
+          }}
+        >
+          {!finishDate ? "Finalizar corrida" : "Reabrir corrida"}
         </button>
         {Boolean(finishDate) && (
           <button onClick={() => {}}>Mostrar vencedores</button>
         )}
+        <button
+          onClick={() => {
+            setPersonsList("[]")
+            setFinishDate("")
+            setStartDate("")
+          }}
+        >
+          Limpar dados
+        </button>
       </div>
       {isShowingForm && (
         <div>
