@@ -2,7 +2,23 @@ import { useState } from "react"
 import { useLocalStorage } from "./hooks/useLocalStorage"
 import Edit from "./assets/icons/pencil.svg"
 import Beer from "./assets/images/beers.png"
+import Gold from "./assets/images/gold_medal.png"
+import Silver from "./assets/images/silver_medal.png"
+import Bronze from "./assets/images/bronze_medal.png"
 import "./assets/styles/App.css"
+
+const getAsset = (index) => {
+  if (index === 0) {
+    return <img src={Gold} width={50} height={50} />
+  }
+  if (index === 1) {
+    return <img src={Silver} width={50} height={50} />
+  }
+  if (index === 2) {
+    return <img src={Bronze} width={50} height={50} />
+  }
+  return index + 1
+}
 
 function App() {
   const [personsList, setPersonsList] = useLocalStorage("personsList", "[]")
@@ -49,7 +65,7 @@ function App() {
         </tr>
         {JSON.parse(personsList).map((mapPerson, index) => (
           <tr key={index}>
-            <td>{index + 1}</td>
+            <td>{getAsset(index)}</td>
             <td>{mapPerson.name}</td>
             {isEditing === index ? (
               <td>
